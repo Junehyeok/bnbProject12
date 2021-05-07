@@ -35,9 +35,9 @@ const normalButtonStyle = css`
 const RegisterButtonStyle = css`
     width: 161px;
     height: 45px;
-    border: 1 solid ${palette.gray_c4};
-    border-radius: 4px;
+    border: 1px solid ${palette.gray_c4};
     background-color: white;
+    border-radius: 4px;
     color: ${palette.gray_48};
     font-size: 18px;
     font-weight: 700;
@@ -75,7 +75,8 @@ const Button: React.FC<IProps> = ({
     children,
     color,
     styleType = "normal",
-    ...props }) => {
+    ...props
+}) => {
     return (
       <Container {...props} color={color} styleType={styleType}>
         {children}

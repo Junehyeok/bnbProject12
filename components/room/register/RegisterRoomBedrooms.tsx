@@ -9,6 +9,7 @@ import Selector from "../../common/Selector";
 import { bedroomCountList } from "../../../lib/staticData";
 import { getNumber } from "../../../lib/utils";
 import Button from "../../common/Button";
+import RegisterRoomBedTypes from "./RegisterRoomBedTypes";
 
 const Container = styled.div`
   padding: 62px 30px 100px;
@@ -30,7 +31,7 @@ const Container = styled.div`
     max-width: 400px;
     word-break: keep-all;
   }
-  .register-room-mamximum-guest-count-wrapper {
+  .register-room-maximum-guest-count-wrapper {
     width: 320px;
     margin-bottom: 32px;
   }
@@ -64,11 +65,11 @@ const Container = styled.div`
 
   .register-room-bed-type-top {
     display: flex;
-    justify-contetn: space-between;
+    justify-content: space-between;
     align-items: center;
   }
   
-  .register-room-bed-type-bedrooms-texts {
+  .register-room-bed-type-bedroom-texts {
     margin-bottom: 28px;
   }
   .register-room-bed-type-bedroom {
@@ -112,7 +113,7 @@ const RegisterRoomBedrooms: React.FC = () => {
           모든 게스트가 편안하게 숙박할 수 있도록 침대가 충분히 구비되어 있는지
           확인하세요.
         </p>
-        <div className="register-room-mamximum-guest-count-wrapper">
+        <div className="register-room-maximum-guest-count-wrapper">
           <Counter
             label="최대 숙박 인원"
             value={maximumGuestCount}
@@ -136,7 +137,19 @@ const RegisterRoomBedrooms: React.FC = () => {
           각 침실에 놓인 침대 유형을 명시하면 숙소에 침대가 어떻게 구비되어 있는지
           게스트가 잘 파악할 수 있습니다.
         </p>
-        <div className="register-room-bed-type-list-wrapper">
+        <ul className="register-room-bed-type-list-wrapper">
+          {bedList.map((bedroom) => (
+            <RegisterRoomBedTypes bedroom={bedroom} />
+          ))}
+        </ul>
+      </Container>
+    );
+};
+
+export default RegisterRoomBedrooms;
+
+/*
+<div className="register-room-bed-type-list-wrapper">
           {bedList.map((bedroom) => (
             <div className="register-room-bedroom">
               <div className="register-room-bed-type-top">
@@ -147,19 +160,13 @@ const RegisterRoomBedrooms: React.FC = () => {
                   <p className="register-room-bed-type-bedroom-counts">
                     침대 0개
                   </p>
+                  
                 </div>
-                <Button
-                  styleType="reigster"
-                  color="white"
-                >
+                <Button color="white" styleType="register">
                   침대 추가하기
                 </Button>
               </div>
             </div>
           ))}
         </div>
-      </Container>
-    );
-};
-
-export default RegisterRoomBedrooms;
+         */

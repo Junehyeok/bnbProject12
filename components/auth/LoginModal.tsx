@@ -120,6 +120,7 @@ const LoginModal: React.FC<IProps> = ({ closeModal }) => {
             value={email}
             onChange={onChangeEmail}
             errorMessage="이메일이 필요합니다."
+            isValid={email !== ""}
           />
         </div>
         <div className="login-input-wrapper login-password-input-wrapper">
@@ -137,6 +138,7 @@ const LoginModal: React.FC<IProps> = ({ closeModal }) => {
             value={password}
             onChange={onChangePassword}
             errorMessage="비밀번호를 입력하세요."
+            isValid={password !== ""}
           />
         </div>
         <div className="login-modal-submit-button-wrapper">
