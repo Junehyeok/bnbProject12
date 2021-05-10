@@ -95,6 +95,51 @@ const registerRoom = createSlice({
             state.bedCount = action.payload;
             return state;
         },
+        //* 침대 유형 갯수 변경하기
+        setBedTypeCount(
+            state,
+            action: PayloadAction<{ bedroomId: number; type: BedType; count: number }>
+        ) {
+            const { bedroomId, type, count } = action.payload;
+
+            const bedroom = state.bedList[bedroomId - 1];
+
+            const prevBeds = bedroom.beds;
+            const index = prevBeds.findIndex((bed) => bed.type === type);
+            if (index === -1) {
+            //* 타입이 없다면
+            state.bedList[bedroomId - 1].beds = [...prevBeds, { type, count }];
+            return state;
+            }
+            //* 타입이 존재한다면
+            if (count === 0) {
+            state.bedList[bedroomId - 1].beds.splice(index, 1);
+            } else {
+            state.bedList[bedroomId - 1].beds[index].count = count;
+            }
+            return state;
+        },
+        //* 공용 공간 침대 유형 갯수 변경하기
+        setPublicBedTypeCount(
+            state,
+            action: PayloadAction<{ type: BedType; count: number }>
+        ) {
+            const { type, count } = action.payload;
+
+            const index = state.publicBedList.findIndex((bed) => bed.type === type);
+            if (index === -1) {
+            //* 타입이 없다면
+            state.publicBedList = [...state.publicBedList, { type, count }];
+            return state;
+            }
+            //* 타입이 존재한다면
+            if (count === 0) {
+            state.publicBedList.splice(index, 1);
+            } else {
+            state.publicBedList[index].count = count;
+            }
+            return state;
+        },
     },
 });
 

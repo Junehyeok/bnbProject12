@@ -10,6 +10,8 @@ import { bedroomCountList } from "../../../lib/staticData";
 import { getNumber } from "../../../lib/utils";
 import Button from "../../common/Button";
 import RegisterRoomBedTypes from "./RegisterRoomBedTypes";
+import RegisterRoomBedList from "./RegisterRoomBedList";
+import RegisterRoomFooter from "./RegisterRoomFooter";
 
 const Container = styled.div`
   padding: 62px 30px 100px;
@@ -127,6 +129,7 @@ const RegisterRoomBedrooms: React.FC = () => {
             onChange={onChangeBedroomCount}
             label="게스트가 사용할 수 있는 침실은 몇 개인가요?"
             options={bedroomCountList}
+            isValid={!!bedroomCount}
           />
         </div>
         <div className="register-room-bed-count-wrapper">
@@ -137,11 +140,12 @@ const RegisterRoomBedrooms: React.FC = () => {
           각 침실에 놓인 침대 유형을 명시하면 숙소에 침대가 어떻게 구비되어 있는지
           게스트가 잘 파악할 수 있습니다.
         </p>
-        <ul className="register-room-bed-type-list-wrapper">
-          {bedList.map((bedroom) => (
-            <RegisterRoomBedTypes bedroom={bedroom} />
-          ))}
-        </ul>
+        <RegisterRoomBedList />
+        <RegisterRoomFooter
+          isValid={!!bedroomCount}
+          prevHref="/room/register/building"
+          nextHref="/room/register/bedrooms"
+        />
       </Container>
     );
 };
