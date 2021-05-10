@@ -26,4 +26,13 @@ type RegisterRoomState = {
     //13chap
     bathroomCount: number;
     bathroomType: "private" | "public" | null;
+    //14chap
+    country: string;
+    city: string;
+    district: string;
+    streetAddress: string;
+    detailAddress: string;
+    postcode: string;
+    latitude: number;
+    longitude: number;
 }

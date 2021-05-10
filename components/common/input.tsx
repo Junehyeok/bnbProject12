@@ -9,7 +9,7 @@ type InputContainerProps = {
     useValidation: boolean;
   };
 
-  const Container = styled.div<InputContainerProps>`
+const Container = styled.div<InputContainerProps>`
   label {
     span {
       display: block;
@@ -77,12 +77,14 @@ type InputContainerProps = {
   interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
     // eslint-disable-next-line no-undef
     icon?: JSX.Element
+    label?: string;
     isValid?: boolean;
     useValidation?: boolean;
     errorMessage?: string;
   }
 
   const Input: React.FC<IProps> = ({
+    label,
     icon,
     isValid = false,
     useValidation = true,
@@ -93,7 +95,13 @@ type InputContainerProps = {
       return (
         // eslint-disable-next-line max-len
         <Container iconExist={!!icon} isValid={isValid} useValidation={validateMode && useValidation}>
-          <input {...props} />
+          {label && (
+            <label>
+              <span>{label}</span>
+              <input {...props} />
+            </label>
+          )}
+          {!label && <input {...props} />}
           {icon}
           {useValidation && validateMode && !isValid && errorMessage && (
             <p className="input-error-message">{errorMessage}</p>
