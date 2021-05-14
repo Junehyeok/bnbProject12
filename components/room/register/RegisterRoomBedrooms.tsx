@@ -154,23 +154,22 @@ export default RegisterRoomBedrooms;
 
 /*
 <div className="register-room-bed-type-list-wrapper">
-          {bedList.map((bedroom) => (
-            <div className="register-room-bedroom">
-              <div className="register-room-bed-type-top">
-                <div className="register-room-bed-type-bedroom-texts">
-                  <p className="register-room-bed-type-bedroom">
-                    {bedroom.id}번 침실
-                  </p>
-                  <p className="register-room-bed-type-bedroom-counts">
-                    침대 0개
-                  </p>
-                  
-                </div>
-                <Button color="white" styleType="register">
-                  침대 추가하기
-                </Button>
-              </div>
-            </div>
-          ))}
+  {bedList.map((bedroom) => (
+    <div className="register-room-bedroom">
+      <div className="register-room-bed-type-top">
+        <div className="register-room-bed-type-bedroom-texts">
+          <p className="register-room-bed-type-bedroom">
+            {bedroom.id}번 침실
+          </p>
+          <p className="register-room-bed-type-bedroom-counts">
+            침대 0개
+          </p>
         </div>
-         */
+        <Button color="white" styleType="register">
+          침대 추가하기
+        </Button>
+      </div>
+    </div>
+  ))}
+</div>
+*/

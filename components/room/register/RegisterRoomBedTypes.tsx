@@ -102,18 +102,18 @@ const RegisterRoomBedTypes: React.FC<IProps> = ({ bedroom }) => {
     }, [bedroom]);
 
     const dispatch = useDispatch();
-
+//styleType="register" color="white"
     return (
       <Container>
         <div className="register-room-bed-type-top">
-          <div className="register-room-bed-type-bedroom-texts">
+          <div>
             <p className="register-room-bed-type-bedroom">{bedroom.id}번 침실</p>
             <p className="register-room-bed-type-bedroom-counts">
               침대 {totalBedsCount}개<br />
               {bedsText}
             </p>
           </div>
-          <Button onClick={toggleOpened} styleType="register" color="white">
+          <Button onClick={toggleOpened} styleType="register" color="white" width="161px">
             {opened && "완료"}
             {!opened && (totalBedsCount === 0 ? "침대 추가하기" : "침대 수정하기")}
           </Button>
