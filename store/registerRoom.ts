@@ -43,6 +43,8 @@ const initialState: RegisterRoomState = {
     longitude: 0,
     // 편의시설
     amentities: [],
+    // 편의공간
+    conveniences: [],
 };
 
 const registerRoom = createSlice({
@@ -118,8 +120,6 @@ const registerRoom = createSlice({
             const prevBeds = bedroom.beds;
             const index = prevBeds.findIndex((bed) => bed.type === type);
 
-            console.log("setBedTypeCount");
-            console.log("index > " + index);
             if (index === -1) {
                 //* 타입이 없다면
                 state.bedList[bedroomId - 1].beds = [...prevBeds, { type, count }];
@@ -200,7 +200,11 @@ const registerRoom = createSlice({
         //* 편의 시설 변경하기
         setAmentities(state, action: PayloadAction<string[]>) {
             state.amentities = action.payload;
-        }
+        },
+        //16chap
+        setConveniences(state, action: PayloadAction<string[]>) {
+            state.conveniences = action.payload;
+        },
     },
 });
 

@@ -35,4 +35,8 @@ type RegisterRoomState = {
     postcode: string;
     latitude: number;
     longitude: number;
+    //15chap
+    amentities: string[];
+    //16chap
+    conveniences: string[],
 }
