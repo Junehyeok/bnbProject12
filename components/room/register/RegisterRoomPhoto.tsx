@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import isEmpty from "lodash/isEmpty";
+import { useDispatch } from "react-redux";
 import palette from "../../../styles/palette";
 import { useSelector } from "../../../store";
 import UploadIcon from "../../../public/static/svg/register/upload.svg";
 import Button from "../../common/Button";
 import photo from "../../../pages/room/register/photo";
 import { uploadFileAPI } from "../../../lib/api/file";
+import { registerRoomActions } from "../../../store/registerRoom";
+import RegisterRoomPhotoCardList from "./RegisterRoomPhotoCardList";
+import RegisterRoomFooter from "./RegisterRoomFooter";
 
 const Container = styled.div`
     padding: 62px 30px 100px;
@@ -53,6 +57,8 @@ const Container = styled.div`
 const RegisterRoomPhoto: React.FC = () => {
     const photos = useSelector((state) => state.registerRoom.photos);
 
+    const dispatch = useDispatch();
+
     const uploadImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const { files } = event.target;
         if (files && files.length > 0) {
@@ -60,12 +66,14 @@ const RegisterRoomPhoto: React.FC = () => {
             const formdata = new FormData();
             formdata.append("file", file);
             try {
-                await uploadFileAPI(formdata);
+                const { data } = await uploadFileAPI(formdata);
+                if (data) {
+                    dispatch(registerRoomActions.setPhotos([...photos, data]));
+                }
             } catch (e) {
                 console.log(e);
             }
         }
-        console.log(files);
     };
 
     return (
@@ -86,6 +94,11 @@ const RegisterRoomPhoto: React.FC = () => {
             </>
           </div>
         )}
+        {!isEmpty(photos) && <RegisterRoomPhotoCardList photos={photos} />}
+        <RegisterRoomFooter
+          prevHref="/room/register/conveniences"
+          nextHref="/room/register/description"
+        />
       </Container>
     );
 };
