@@ -45,6 +45,8 @@ const initialState: RegisterRoomState = {
     amentities: [],
     // 편의공간
     conveniences: [],
+    // 사진
+    photos: [],
 };
 
 const registerRoom = createSlice({
@@ -205,6 +207,10 @@ const registerRoom = createSlice({
         setConveniences(state, action: PayloadAction<string[]>) {
             state.conveniences = action.payload;
         },
+        //17chap
+        setPhotos(state, action: PayloadAction<string[]>) {
+            state.photos = action.payload;
+        }
     },
 });
 
