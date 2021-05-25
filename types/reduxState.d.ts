@@ -38,7 +38,9 @@ type RegisterRoomState = {
     //15chap
     amentities: string[];
     //16chap
-    conveniences: string[],
+    conveniences: string[];
     //17chap
-    photos: string[],
+    photos: string[];
+    //18chap
+    description: string;
 }

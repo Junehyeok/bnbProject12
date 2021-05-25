@@ -47,6 +47,8 @@ const initialState: RegisterRoomState = {
     conveniences: [],
     // 사진
     photos: [],
+    // 숙소설명
+    description: "",
 };
 
 const registerRoom = createSlice({
@@ -210,6 +212,10 @@ const registerRoom = createSlice({
         //17chap
         setPhotos(state, action: PayloadAction<string[]>) {
             state.photos = action.payload;
+        },
+        //18chap
+        setDescription(state, action: PayloadAction<string>) {
+            state.description = action.payload;
         }
     },
 });
