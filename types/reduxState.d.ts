@@ -43,4 +43,6 @@ type RegisterRoomState = {
     photos: string[];
     //18chap
     description: string;
+    //19chap
+    title: string;
 }
