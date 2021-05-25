@@ -45,4 +45,6 @@ type RegisterRoomState = {
     description: string;
     //19chap
     title: string;
+    //20chap
+    price: number;
 }

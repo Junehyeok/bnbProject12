@@ -51,6 +51,8 @@ const initialState: RegisterRoomState = {
     description: "",
     // 숙소제목
     title: "",
+    // 요금
+    price: 0,
 };
 
 const registerRoom = createSlice({
@@ -222,6 +224,10 @@ const registerRoom = createSlice({
         //19chap
         setTitle(state, action: PayloadAction<string>) {
             state.title = action.payload;
+        },
+        //20chap
+        setPrice(state, action: PayloadAction<number>) {
+            state.price = action.payload;
         },
     },
 });
