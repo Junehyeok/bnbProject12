@@ -47,4 +47,7 @@ type RegisterRoomState = {
     title: string;
     //20chap
     price: number;
+    //21chap
+    startDate : string | null;
+    endDate : string | null;
 }

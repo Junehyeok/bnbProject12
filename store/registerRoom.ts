@@ -53,6 +53,10 @@ const initialState: RegisterRoomState = {
     title: "",
     // 요금
     price: 0,
+    // 예약 시작일
+    startDate: null,
+    // 예약 종료일
+    endDate: null,
 };
 
 const registerRoom = createSlice({
@@ -228,6 +232,13 @@ const registerRoom = createSlice({
         //20chap
         setPrice(state, action: PayloadAction<number>) {
             state.price = action.payload;
+        },
+        //21chap
+        setStartDate(state, action: PayloadAction<string | null>) {
+            state.startDate = action.payload;
+        },
+        setEndDate(state, action: PayloadAction<string | null>) {
+            state.endDate = action.payload;
         },
     },
 });
