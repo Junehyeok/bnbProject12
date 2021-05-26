@@ -51,7 +51,7 @@ const RegisterRoomPrice: React.FC = () => {
         <Input label="기본요금" value={makeMoneyString(String(price))} onChange={onChangePrice} />
         <RegisterRoomFooter
           prevHref="/room/register/title"
-          nextHref="/room/register/data"
+          nextHref="/room/register/date"
         />
       </Container>
     );
