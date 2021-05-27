@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "hooks/useDebounce.tsㅌ"  ],
   "exclude": [
     "node_modules"
   ]
