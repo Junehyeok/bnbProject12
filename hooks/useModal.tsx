@@ -36,11 +36,8 @@ const useModal = () => {
     }
 
     const ModalPortal: React.FC<IProps> = ({ children }) => {
-        console.log("children");
-        console.log(children);
         const ref = useRef<Element | null>();
         const [mounted, setMounted] = useState(false);
-        console.log("2");
         useEffect(() => {
             setMounted(true);
             if (document) {
@@ -48,9 +45,7 @@ const useModal = () => {
                 ref.current = dom;
             }
         }, []);
-        console.log("3 ");
         if (ref.current && mounted && modalOpened) {
-            console.log("4");
             return createPortal(
               <Container>
                 <div
@@ -63,7 +58,6 @@ const useModal = () => {
               ref.current
             );
           }
-          console.log("5");
           return null;
     };
     return {

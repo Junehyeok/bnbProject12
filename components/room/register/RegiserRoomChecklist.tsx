@@ -67,26 +67,26 @@ const RegisterRoomCheckList: React.FC = () => {
     // 위치 항목 활성화 체크
     const isLocationActived = useMemo(() => {
         const {
-        latitude,
-        longitude,
-        country,
-        city,
-        district,
-        streetAddress,
-        detailAddress,
-        postcode,
+            latitude,
+            longitude,
+            country,
+            city,
+            district,
+            streetAddress,
+            detailAddress,
+            postcode,
         } = registerRoom;
         if (
-        !isBathroomActived ||
-        !latitude ||
-        !longitude ||
-        !country ||
-        !city ||
-        !district ||
-        !streetAddress ||
-        !postcode
+            !isBathroomActived ||
+            !latitude ||
+            !longitude ||
+            !country ||
+            !city ||
+            !district ||
+            !streetAddress ||
+            !postcode
         ) {
-        return false;
+            return false;
         }
         return true;
     }, []);

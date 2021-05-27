@@ -24,13 +24,11 @@ interface IProps {
   children: React.ReactNode;
   closePortal: () => void;
 }
-console.log("???");
+
 const ModalPortal: React.FC<IProps> = ({ children, closePortal }) => {
-  console.log("<><><><>");
   const ref = useRef<Element | null>();
   const [mounted, setMounted] = useState(false);
-  console.log("modalPortal");
-  console.log(children);
+
   useEffect(() => {
     setMounted(true);
     if (document) {

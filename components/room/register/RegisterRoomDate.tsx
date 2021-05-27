@@ -64,8 +64,8 @@ const RegisterRoomDate: React.FC = () => {
     const dateEndDate = endDate ? new Date(endDate) : null;
 
     const onChangeStartDate = (date: Date | null) => {
-        console.log(date);
-        dispatch(registerRoomActions.setStartDate(date ? date.toISOString() : null));
+      console.log(date);
+      dispatch(registerRoomActions.setStartDate(date ? date.toISOString() : null));
     };
 
     const onChangeEndDate = (date: Date | null) => {

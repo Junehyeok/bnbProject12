@@ -25,9 +25,19 @@ const getButtonColor = (color: string, colorReverse: boolean) => {
             background-color: ${palette.dark_cyan};
           `;
         case "white":
-        return css`
+          return css`
             background-color: white;
-        `;
+          `;
+        case "amaranth":
+          return css`
+            background-color: ${palette.amaranth};
+            color: white;
+          `;
+        case "bittersweet":
+            return css`
+              background-color: ${palette.bittersweet};
+              color: white;
+          `;
         default:
             return css`
             background-color: ${palette.bittersweet};

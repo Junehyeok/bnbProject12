@@ -70,9 +70,6 @@ const RegisterRoomBedTypes: React.FC<IProps> = ({ bedroom }) => {
       return bedTypes.filter((bedType) => !activedBedOptions.includes(bedType));
     }, [activedBedOptions, bedroom]);
 
-    console.log("activedBedOptions");
-    console.log(activedBedOptions);
-
     //* 침대 개수 총합
     const totalBedsCount = useMemo(() => {
         let total = 0;
