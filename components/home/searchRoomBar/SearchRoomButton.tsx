@@ -13,7 +13,7 @@ const SearchRoomButton: React.FC = () => {
   return (
     <Link href={roomListHref}>
       <a>
-        <Button icon={<SearchIcon />} color="amaranth" width="89px">
+        <Button icon={<SearchIcon />} color="amaranth" width="93px">
           검색
         </Button>
       </a>

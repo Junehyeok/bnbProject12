@@ -46,7 +46,11 @@ const initialState: RegisterRoomState = {
     // 편의공간
     conveniences: [],
     // 사진
-    photos: [],
+    photos: [
+        "https://nextjs-bucket.s3.ap-northeast-2.amazonaws.com/DSC00492__f87d4f8c-5330-4b78-b377-df4087d4e842.JPG",
+        "https://nextjs-bucket.s3.ap-northeast-2.amazonaws.com/DSC00493__5cab7c70-1680-4c4c-bb78-4efb82d7c1c8.JPG",
+        "https://nextjs-bucket.s3.ap-northeast-2.amazonaws.com/%EC%A0%9C24__f2ff125e-2137-4cde-b2e3-f2d8623efed5.JPG"
+    ],
     // 숙소설명
     description: "",
     // 숙소제목

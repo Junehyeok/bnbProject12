@@ -2,6 +2,7 @@ import { NextApiResponse, NextApiRequest } from "next";
 import axios from "axios";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log("/pages/api/maps/place/placeid.ts");
   if (req.method === "GET") {
     const { placeId } = req.query;
     if (!placeId) {
@@ -9,6 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.send("placeId 없습니다.");
     }
     try {
+      console.log("/pages/api/maps/place/placeid.ts");
       const { data } = await axios.get(
         `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&language=ko&key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}`
       );

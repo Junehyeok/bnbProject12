@@ -76,6 +76,13 @@ const SearchRoomBarLocation: React.FC = () => {
 
     const inputRef = useRef<HTMLInputElement | null>(null);
 
+    const [results, setResults] = useState<
+      {
+        description: String;
+        placeId: String;
+      }[]
+    >([]);
+
     /* 이벤트를 그룹화하여 특정 시간이 지난 후 하나의 이벤트만 발생하도록 한다. */
     const searchKeyword = useDebounce(location, 150);
 
@@ -91,31 +98,15 @@ const SearchRoomBarLocation: React.FC = () => {
         dispatch(searchRoomActions.setLocation(value));
     };
 
-    const [results, setResults] = useState<
-      {
-        description: String;
-        placeId: String;
-      }[]
-    >([]);
-
     const searchPlaces = async () => {
       try {
         const { data } = await searchPlacesAPI(encodeURI(location));
         setResults(data);
       } catch (e) {
-        console.log("e ? " + e);
+        console.log("error");
+        console.log(e);
       }
     };
-
-    //검색어가 변하면 장소 검색
-    useEffect(() => {
-      if (!searchKeyword) {
-        setResults([]);
-      }
-      if (searchKeyword) {
-        searchPlaces();
-      }
-    }, [searchKeyword]);
 
     //* 위도 변경 Dispatch
     const setLatitudeDispatch = (value: number) => {
@@ -155,6 +146,15 @@ const SearchRoomBarLocation: React.FC = () => {
       }
     };
 
+    //검색어가 변하면 장소 검색
+    useEffect(() => {
+      if (!searchKeyword) {
+        setResults([]);
+      }
+      if (searchKeyword) {
+        searchPlaces();
+      }
+    }, [searchKeyword]);
     return (
       <Container onClick={onClickInput}>
         <OutsideClickHandler onOutsideClick={() => setPopupOpened(false)}>
